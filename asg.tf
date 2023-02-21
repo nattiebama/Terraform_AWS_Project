@@ -7,6 +7,7 @@ resource "aws_launch_template" "webserver_launch_template" {
   key_name      = var.ec2_key_pair_name
   description   = "launch template for asg"
 
+
   monitoring {
     enabled = true
   }
