@@ -16,7 +16,7 @@ resource "aws_lb" "application_load_balancer" {
 
   enable_deletion_protection = false
 
-  tags   = {
+  tags = {
     Name = "dev-alb"
   }
 }
@@ -52,24 +52,24 @@ resource "aws_lb_listener" "alb_http_listener" {
   default_action {
     type = "redirect"
 
-#    redirect {
-#      host        = "#{host}"
-#     path        = "/#{path}"
-#      port        = 443
-#     protocol    = "HTTPS"
-#      status_code = "HTTP_301"
-#    }
+    #    redirect {
+    #      host        = "#{host}"
+    #     path        = "/#{path}"
+    #      port        = 443
+    #     protocol    = "HTTPS"
+    #      status_code = "HTTP_301"
+    #    }
   }
 }
 
 # create a listener on port 443 with forward action
 # terraform aws create listener
 resource "aws_lb_listener" "alb_https_listener" {
-  load_balancer_arn  = aws_lb.application_load_balancer.arn
-  port               = 443
-  protocol           = "HTTPS"
-#  ssl_policy         = "ELBSecurityPolicy-2016-08"
-#  certificate_arn    = 
+  load_balancer_arn = aws_lb.application_load_balancer.arn
+  port              = 443
+  protocol          = "HTTPS"
+  #  ssl_policy         = "ELBSecurityPolicy-2016-08"
+  #  certificate_arn    = 
   default_action {
     type             = "forward"
     target_group_arn = aws_lb_target_group.alb_target_group.id
