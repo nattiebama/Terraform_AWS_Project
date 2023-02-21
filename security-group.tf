@@ -29,7 +29,7 @@ resource "aws_security_group" "alb_security_group" {
   }
 
   tags   = {
-    Name = alb_security_group
+    Name = "alb_security_group"
   }
 }
 
@@ -102,4 +102,3 @@ resource "aws_security_group" "webserver_security_group" {
     Name = "webserver security group"
   }
 }
-
