@@ -60,3 +60,9 @@ variable "ec2_key_pair_name" {
   description = "name of instance key pair"
   type        = string
 }
+
+variable "aws_s3_bucket" {
+  default     = "key2"
+  description = "name of s3 bucket"
+  type        = string
+}
